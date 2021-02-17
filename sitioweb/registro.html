@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Starship.com - Formulario de registro</title>
+
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.js"></script>
+  <link rel="shortcut icon" href="assets/ico/favicon2.png">
+
+</head>
+<body style="color:white">
+  <div class="inner-bg">
+    <div class="container col-sm-6" style="margin-top: 5%;">
+      <div class="row">
+        <div class="text" style="margin-left: 35%;">
+          <h1><strong><font size="6" face="Comic Sans MS">Starship</font></strong></h1>
+          <div class="text-center">
+            <p><strong>
+              ¡¡¡Bienvenidos!!!
+            </strong></p>
+          </div>
+          
+        </div>
+        <div class="col-sm-12" style="margin-top: 10%;">
+          <div class="form-top">
+            <div class="form-top-left">
+              <h3>Formulario de registro</h3>
+              
+            </div>
+          </div>
+          <div class="container col-sm-12" data-ng-app="registroApp" data-ng-controller="registroCtrl">
+            <form name="registerForm" ng-submit="guardar(usuario)" novalidate>
+
+              <div class="form-group" ng-class="{ 'has-error' : registerForm.nombre_usuario.$invalid && !registerForm.nombre_usuario.$pristine }">
+                <label>Nombre</label>
+                <input type="text"
+                name="nombre_usuario"
+                class="form-control"
+                ng-model="usuario.nombre_usuario"
+                required>
+                <p ng-show="registerForm.nombre_usuario.$invalid && !registerForm.nombre_usuario.$pristine" class="help-block">Complete este campo</p>
+              </div>
+
+              <div class="form-group" ng-class="{ 'has-error' : registerForm.apellido.$invalid && !registerForm.apellido.$pristine }">
+                <label>Apellido</label>
+                <input type="text"
+                name="apellido"
+                class="form-control"
+                ng-model="usuario.apellido"
+                required>
+                <p ng-show="registerForm.apellido.$invalid && !registerForm.apellido.$pristine" class="help-block">Complete este campo</p>
+              </div>
+
+              <div class="form-group" ng-class="{ 'has-error' : registerForm.telefono.$invalid && !registerForm.telefono.$pristine }">
+                <label>Telefono</label>
+                <input type="number"
+                name="telefono"
+                class="form-control"
+                ng-model="usuario.telefono"
+                required>
+                <p ng-show="registerForm.telefono.$invalid && !registerForm.telefono.$pristine" class="help-block">Complete este campo</p>
+              </div>
+
+              <div class="form-group" ng-class="{ 'has-error' : registerForm.localidad.$invalid && !registerForm.localidad.$pristine }">
+                <label>Localidad</label>
+                <input type="text"
+                name="localidad"
+                class="form-control"
+                ng-model="usuario.localidad"
+                required>
+                <p ng-show="registerForm.localidad.$invalid && !registerForm.localidad.$pristine" class="help-block">Complete este campo</p>
+              </div>
+
+              <div class="form-group" ng-class="{ 'has-error' : registerForm.email.$invalid && !registerForm.email.$pristine }">
+                <label>Email</label>
+                <input type="email"
+                name="email"
+                class="form-control"
+                ng-model="usuario.email"
+                required >
+                <p ng-show="registerForm.email.$invalid && !registerForm.email.$pristine" class="help-block">Asegurese de poner@</p>
+              </div>
+
+              <div class="form-group" ng-class="{ 'has-error' : registerForm.password.$invalid && !registerForm.password.$pristine }">
+                <label>Contraseña</label>
+                <input type="text"
+                name="password"
+                class="form-control"
+                ng-model="usuario.password"
+                required>
+                <p ng-show="registerForm.password.$invalid && !registerForm.password.$pristine" class="help-block">Complete este campo</p>
+              </div>
+
+              <button type="submit" class="btn btn-primary" ng-disabled="registerForm.$invalid">Registrarme</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="js/registro.js"></script>
+<script src="assets/js/jquery-1.11.1.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/js/jquery.backstretch.min.js"></script>
+<script src="assets/js/scripts.js"></script>
+</body>
+</html>

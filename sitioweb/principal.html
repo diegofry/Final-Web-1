@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>Starship.com - Lista de Productos</title>
+
+<!--   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script> -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+  <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+  </head>
+  <body style="background-image: url('assets/img/backgrounds/1.jpg')" data-ng-app="principalApp" data-ng-controller="principalCtrl">
+
+    <header>
+      <nav class="navbar navbar-expand navbar-light bg-light">
+        <a class="navbar-brand" href="principal.html">StarShip</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExample02">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="carga.html">Cargar</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="principal.html">Productos<span class="sr-only">(actual)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="perfil.html">Perfil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html" data-ng-click="logout()">Logout</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-md-0">
+            <input class="form-control" data-ng-model="searchBox" type="text" placeholder="Buscar">
+          </form>
+          <a style="margin-left: 5%;" class="story-title" href="perfil.html"><img ng-src="{{foto}}" style="width:50px;height:50px" class="img-circle"></a> 
+        </div>
+      </nav>
+    </header>
+
+    <div id="">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7" style="margin-left: 31%;">
+            <h1><font color ="white">Nuestros Productos</font></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+   
+    <table class="col-sm-12 justify-content-center d-flex">
+      <thead>
+        <th></th>
+      </thead>
+      <tbody>
+        <tr class="d-table-row" data-ng-repeat="producto in misProductos  | filter: searchBox">
+          <td bgcolor="#F4BEB8">
+            <div class="col-sm-3 text-center pull-left"  >
+              <img ng-src="{{producto.foto}}" style="width:40px;height:40px" class="img-circle center-block">
+              <label class="col-md-12">{{producto.nombre_usuario}}</label>
+            </div> 
+            <div class="col-sm-9 pull-right">
+              <h3>{{producto.titulo}}</h3>
+              <label class="">{{producto.descripcion}}</label>
+              <br>
+              <small style="font-family:courier,'new courier';">{{producto.precio | currency}}</small> 
+              <div data-ng-repeat="comen in producto.comentario">
+                <div class="text-muted"><strong>{{comen.nombre_usuario}}</strong>: {{comen.comentario}}</div>
+              </div>
+              <textarea class="form-control col-sm-6" rows="2" id="comment" ng-model="comentario"></textarea>
+              <button class="btn btn-sm btn-primary" data-ng-click="comentar(producto.id, comentario , producto.nombre_usuario)">Comentar</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script src="js/principal.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+  </html>

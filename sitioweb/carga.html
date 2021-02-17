@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>Starship.com - Carga de productos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.js"></script>
+</head>
+<body style="background-image: url('assets/img/backgrounds/1.jpg')"  data-ng-app="cargaApp" data-ng-controller="cargaCtrl">
+
+
+  <header>
+    <nav class="navbar navbar-expand navbar-light bg-light">
+      <a class="navbar-brand" href="principal.html">Starship</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample02">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="carga.html">Cargar<span class="sr-only">(actual)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="principal.html">Productos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="perfil.html">Perfil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html" data-ng-click="logout()">Logout</a>
+          </li>
+        </ul>
+        <a style="margin-left: 5%;" class="story-title" href="perfil.html"><img ng-src="{{foto}}" style="width:50px;height:50px" class="img-circle"></a> 
+      </div>
+    </nav>
+  </header>
+
+
+  <div id="">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7" style="color: white">
+          <h1>Carga de productos</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="container col-sm-12 center-block"style="color: white">
+  <div class="row">
+    <div class="col-md-12"> 
+      <div class="panel">
+        <div class="panel-body">
+          <div class="hidden-xs col-md-1"></div>
+          <div class="col-xs-12 col-md-5" >
+            <form name="productoForm" ng-submit="guardar()" novalidate>
+              <div class="form-group" ng-class="{ 'has-error' : productoForm.titulo.$invalid && !productoForm.titulo.$pristine }">
+                <label class="col-form-label-lg">Titulo</label>
+                <input type="text"
+                name="titulo"
+                class="form-control"
+                ng-model="producto.titulo"
+                required>
+                <p ng-show="productoForm.titulo.$invalid && !productoForm.titulo.$pristine" class="help-block">Complete este campo</p>
+              </div>
+
+              <div class="form-group" ng-class="{ 'has-error' : productoForm.descripcion.$invalid && !productoForm.descripcion.$pristine }">
+                <label class="col-form-label-lg">Descripción</label>
+                <input type="text"
+                name="descripcion"
+                class="form-control"
+                ng-model="producto.descripcion"
+                required>
+                <p ng-show="productoForm.descripcion.$invalid && !productoForm.descripcion.$pristine" class="help-block">Complete este campo</p>
+              </div>
+
+              <div class="form-group" ng-class="{ 'has-error' : productoForm.precio.$invalid && !productoForm.precio.$pristine }">
+                <label class="col-form-label-lg">Precio</label>
+                <input type="number"
+                name="precio"
+                class="form-control"
+                ng-model="producto.precio"
+                required>
+                <p ng-show="productoForm.precio.$invalid && !productoForm.precio.$pristine" class="help-block">Complete este campo</p>
+              </div>
+              <button type="submit" class="btn btn-primary" ng-disabled="productoForm.$invalid">Guardar</button>
+              <br>
+            </form>
+          </div>
+        </div>
+      </div>                                            
+    </div>
+  </div>
+</div>
+
+<script src="js/carga.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/js/jquery-1.11.1.min.js"></script>
+</body>
+</html>

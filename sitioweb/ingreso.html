@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Starship.com - Inicio de sesión</title>
+
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.js"></script>
+
+</head>
+
+<body data-ng-app="loginApp" data-ng-controller="loginCtrl" >
+    <div class="">
+        <div class="inner-bg">
+            <div class="container col-sm-6" style="margin-top: 5%;">
+                <div class="row">
+                    <div class="text" style="margin-left: 37%;">
+                       
+                        <h1 ><strong><font color ="white" size="6" face="Comic Sans MS">Starship</font></strong></h1>
+                    
+                      
+                    </div>
+                    <div class="col-sm-12" style="margin-top: 10%;">
+                      
+                         <div class="container col-sm-12" style="color:white">
+                            <form name="loginForm"  ng-submit="log(usuario)" novalidate>
+
+                                <div class="form-group" ng-class="{ 'has-error' : loginForm.nombre_usuario.$invalid && !loginForm.nombre_usuario.$pristine }">
+                                    <label>Usuario</label>
+                                    <input type="text"
+                                    name="usuario"
+                                    class="form-control"
+                                    ng-model="usuario.nombre_usuario"
+                                    required>
+                                    <p ng-show="loginForm.nombre_usuario.$invalid && !loginForm.nombre_usuario.$pristine" class="help-block">Complete este campo</p>
+                                </div>
+
+                                <div class="form-group" ng-class="{ 'has-error' : loginForm.password.$invalid && !loginForm.password.$pristine }">
+                                    <label>Contraseña</label>
+                                    <input type="password"
+                                    name="password"
+                                    class="form-control"
+                                    ng-model="usuario.password"
+                                    required>
+                                    <p ng-show="loginForm.password.$invalid && !loginForm.password.$pristine" class="help-block">Complete este campo</p>
+                                </div>
+                                <button type="submit" class="btn btn-primary" ng-disabled="loginForm.$invalid">Entrar</button>
+                            </form>
+                        </div>
+                       
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/login.js"></script>
+    <script src="assets/js/jquery-1.11.1.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.backstretch.min.js"></script>
+    <script src="assets/js/scripts.js"></script>
+</body>
+</html>

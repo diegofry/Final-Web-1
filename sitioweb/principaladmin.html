@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Starship.com - Lista de Usuarios</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+</head>
+<body data-ng-app="principaladminApp" data-ng-controller="principaladminCtrl"> 
+    <header>
+        <nav class="navbar navbar-expand navbar-light bg-light">
+            <a class="navbar-brand" href="principaladmin.html">Starship</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarsExample02">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="principaladmin.html">Usuarios<span class="sr-only">(actual)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="productosadmin.html">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="perfiladmin.html">Perfil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html" data-ng-click="logout()">Logout</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-md-0">
+                    <input class="form-control" data-ng-model="searchBox" type="text" placeholder="Buscar">
+                </form>
+                <a style="margin-left: 5%;" class="story-title" href="perfil.html"><img ng-src="{{foto}}" style="width:50px;height:50px" class="img-circle"></a>
+            </nav>
+        </header>
+
+        <div id="">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7">
+                        <h1>Lista de usuarios
+                            <p class=""></p>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <table class="table table-active">
+                <thead class="thead-dark">
+                 <th class="text-center">Nombre de Usuario</th>
+                 <th class="text-center">Email</th>
+                 <th class="text-center">Localidad</th>
+                 <th class="text-center">Teléfono</th>
+                 <th class="text-center">Acción</th>
+             </thead>
+             <tbody>
+                <tr data-ng-repeat="user in misUsuarios | filter: searchBox">
+                    <td>{{user.nombre_usuario}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.localidad}}</td>
+                    <td>{{user.telefono}}</td>
+                    <td>
+                        <span role="button" title="Eliminar" class="pull-right fas fa-trash" data-ng-click="borraruser(user.id)">|</span>
+                        <span role="button" title="Hacer administrador" class="pull-right glyphicon fas fa-crown" data-ng-click="haceradmin(user.id)" ng-if="!(user.type==1)">|</span>
+                        <span role="button" title="Hacer usuario" class="pull-right glyphicon fas fa-arrow-down" data-ng-click="sacaradmin(user.id)" ng-if="user.type==1">|</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="js/principaladmin.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
